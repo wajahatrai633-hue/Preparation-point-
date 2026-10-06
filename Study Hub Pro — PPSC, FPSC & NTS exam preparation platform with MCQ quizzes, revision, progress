@@ -1,0 +1,2654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Study Hub Pro | PPSC FPSC NTS Preparation</title>
+
+  <meta name="description"
+        content="Study Hub Pro - PPSC, FPSC and NTS exam preparation platform with MCQ tests, revision and progress tracking.">
+
+  <meta name="author" content="Rai Wajahat Nazir">
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #0f172a;
+      --bg: #f1f5f9;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --success: #16a34a;
+      --danger: #dc2626;
+      --warning: #f59e0b;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font-family: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      background: var(--secondary);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #60a5fa;
+    }
+
+    .owner-mini {
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+
+    /* ================= NAVIGATION ================= */
+
+    nav {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 59px;
+      z-index: 999;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      gap: 5px;
+      padding: 8px 15px;
+      overflow-x: auto;
+    }
+
+    .nav-btn {
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      padding: 10px 14px;
+      border-radius: 9px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .nav-btn:hover,
+    .nav-btn.active {
+      background: #dbeafe;
+      color: var(--primary);
+    }
+
+    /* ================= MAIN ================= */
+
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 25px 20px 60px;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      background: linear-gradient(
+        135deg,
+        #1d4ed8,
+        #4338ca
+      );
+      color: white;
+      border-radius: 22px;
+      padding: 40px;
+      margin-bottom: 25px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      padding: 6px 12px;
+      border-radius: 30px;
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #dbeafe;
+      max-width: 700px;
+    }
+
+    /* ================= BUTTONS ================= */
+
+    .btn {
+      border: none;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: .2s;
+      margin-top: 15px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-light {
+      background: white;
+      color: var(--primary);
+    }
+
+    .btn-secondary {
+      background: #e2e8f0;
+      color: var(--text);
+    }
+
+    .btn-danger {
+      background: var(--danger);
+      color: white;
+    }
+
+    /* ================= CARDS ================= */
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .stat-card,
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .stat-icon {
+      font-size: 28px;
+    }
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    /* ================= SUBJECTS ================= */
+
+    .subject-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .subject-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      transition: .2s;
+    }
+
+    .subject-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(15,23,42,.08);
+    }
+
+    .subject-icon {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .subject-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 7px;
+    }
+
+    /* ================= QUIZ SETUP ================= */
+
+    .quiz-setup,
+    .quiz-container,
+    .result-card {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .quiz-setup {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 30px;
+    }
+
+    .field {
+      margin: 20px 0;
+    }
+
+    .field label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: white;
+      font-size: 16px;
+    }
+
+    /* ================= QUIZ ================= */
+
+    .quiz-top {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 18px;
+      margin-bottom: 15px;
+    }
+
+    .quiz-info {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .timer {
+      color: var(--danger);
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .progress {
+      height: 9px;
+      background: #e2e8f0;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 14px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--primary);
+      transition: width .3s;
+    }
+
+    .question-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 30px;
+    }
+
+    .question-subject {
+      color: var(--primary);
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .question-text {
+      font-size: 23px;
+      font-weight: bold;
+      margin-bottom: 25px;
+    }
+
+    .options {
+      display: grid;
+      gap: 12px;
+    }
+
+    .option {
+      width: 100%;
+      text-align: left;
+      background: white;
+      border: 2px solid var(--border);
+      padding: 15px;
+      border-radius: 11px;
+      font-size: 16px;
+    }
+
+    .option:hover {
+      border-color: var(--primary);
+      background: #eff6ff;
+    }
+
+    .option.selected {
+      border-color: var(--primary);
+      background: #dbeafe;
+    }
+
+    .quiz-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    /* ================= RESULT ================= */
+
+    .result-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 35px;
+      text-align: center;
+    }
+
+    .result-icon {
+      font-size: 60px;
+    }
+
+    .score {
+      color: var(--primary);
+      font-size: 55px;
+      font-weight: bold;
+      margin: 10px;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 25px 0;
+    }
+
+    .result-box {
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    .result-box strong {
+      display: block;
+      font-size: 25px;
+    }
+
+    /* ================= REVISION ================= */
+
+    .revision-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 12px;
+    }
+
+    .correct-answer {
+      color: var(--success);
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .explanation {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    /* ================= CONTACT ================= */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .contact-item {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+    }
+
+    .contact-icon {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .contact-item h3 {
+      margin-bottom: 5px;
+    }
+
+    .contact-item p {
+      color: var(--muted);
+    }
+
+    .contact-link {
+      color: var(--primary);
+      font-weight: bold;
+      word-break: break-word;
+    }
+
+    /* ================= ABOUT ================= */
+
+    .about-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 18px;
+    }
+
+    .about-card p {
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    .owner-box {
+      background: linear-gradient(
+        135deg,
+        #eff6ff,
+        #eef2ff
+      );
+      border-radius: 16px;
+      padding: 25px;
+      margin-top: 20px;
+    }
+
+    .owner-name {
+      font-size: 25px;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: var(--secondary);
+      color: #cbd5e1;
+      padding: 35px 20px;
+      text-align: center;
+    }
+
+    footer h2 {
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    .footer-links {
+      margin: 15px 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .footer-links a {
+      color: #93c5fd;
+    }
+
+    .footer-owner {
+      color: white;
+      font-weight: bold;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media(max-width:900px) {
+
+      .stats-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .subject-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+    }
+
+    @media(max-width:600px) {
+
+      .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        top: 90px;
+      }
+
+      main {
+        padding: 18px 12px 40px;
+      }
+
+      .hero {
+        padding: 25px 20px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .stats-grid,
+      .subject-grid,
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .question-card,
+      .quiz-setup,
+      .result-card,
+      .about-card {
+        padding: 20px;
+      }
+
+      .question-text {
+        font-size: 20px;
+      }
+
+      .result-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quiz-actions {
+        flex-direction: column;
+      }
+
+      .quiz-actions button {
+        width: 100%;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+  <div class="header-container">
+
+    <div class="logo">
+      Study <span>Hub Pro</span>
+    </div>
+
+    <div class="owner-mini">
+      Owned & Developed by Rai Wajahat Nazir
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+
+  <div class="nav-container">
+
+    <button class="nav-btn active"
+            data-page="dashboard">
+      🏠 Dashboard
+    </button>
+
+    <button class="nav-btn"
+            data-page="quizSetup">
+      📝 Quiz
+    </button>
+
+    <button class="nav-btn"
+            data-page="subjects">
+      📚 Subjects
+    </button>
+
+    <button class="nav-btn"
+            data-page="revision">
+      🔄 Revision
+    </button>
+
+    <button class="nav-btn"
+            data-page="progress">
+      📊 Progress
+    </button>
+
+    <button class="nav-btn"
+            data-page="about">
+      👤 About
+    </button>
+
+    <button class="nav-btn"
+            data-page="contact">
+      📞 Contact
+    </button>
+
+  </div>
+
+</nav>
+
+
+<main>
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<section id="dashboard"
+         class="page active">
+
+  <div class="hero">
+
+    <div class="hero-badge">
+      PPSC • FPSC • NTS Preparation
+    </div>
+
+    <h1>
+      Welcome to Study Hub Pro 👋
+    </h1>
+
+    <p>
+      ایک جگہ پر MCQ Practice، Revision اور Progress Tracking۔
+      اپنے competitive exam کی preparation کو بہتر بنائیں۔
+    </p>
+
+    <button class="btn btn-light"
+            id="heroStartBtn">
+      ▶ Start 10 MCQ Test
+    </button>
+
+  </div>
+
+
+  <div class="stats-grid">
+
+    <div class="stat-card">
+      <div class="stat-icon">📝</div>
+      <div class="stat-value"
+           id="totalTests">
+        0
+      </div>
+      <div class="stat-label">
+        Tests Completed
+      </div>
+    </div>
+
+
+    <div class="stat-card">
+      <div class="stat-icon">🏆</div>
+      <div class="stat-value"
+           id="bestScore">
+        0%
+      </div>
+      <div class="stat-label">
+        Best Score
+      </div>
+    </div>
+
+
+    <div class="stat-card">
+      <div class="stat-icon">📈</div>
+      <div class="stat-value"
+           id="averageScore">
+        0%
+      </div>
+      <div class="stat-label">
+        Average Score
+      </div>
+    </div>
+
+
+    <div class="stat-card">
+      <div class="stat-icon">🔥</div>
+      <div class="stat-value">
+        1
+      </div>
+      <div class="stat-label">
+        Study Streak
+      </div>
+    </div>
+
+  </div>
+
+
+  <h2 class="section-title">
+    Quick Subjects
+  </h2>
+
+
+  <div class="subject-grid">
+
+    <div class="subject-card">
+      <div class="subject-icon">🇵🇰</div>
+      <h3>Pakistan Studies</h3>
+      <p>
+        Pakistan History, Constitution and important facts.
+      </p>
+    </div>
+
+
+    <div class="subject-card">
+      <div class="subject-icon">💻</div>
+      <h3>Computer</h3>
+      <p>
+        Computer basics, MS Office and Internet.
+      </p>
+    </div>
+
+
+    <div class="subject-card">
+      <div class="subject-icon">📖</div>
+      <h3>English</h3>
+      <p>
+        Grammar, vocabulary and sentence correction.
+      </p>
+    </div>
+
+
+    <div class="subject-card">
+      <div class="subject-icon">🌍</div>
+      <h3>General Knowledge</h3>
+      <p>
+        World facts, geography and everyday knowledge.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= QUIZ SETUP ================= -->
+
+<section id="quizSetup"
+         class="page">
+
+  <div class="quiz-setup">
+
+    <h2>
+      📝 Start New Quiz
+    </h2>
+
+    <p style="color:#64748b;margin-top:8px;">
+      Subject select کریں اور اپنا test شروع کریں۔
+    </p>
+
+
+    <div class="field">
+
+      <label>
+        Select Subject
+      </label>
+
+      <select id="subjectSelect">
+
+        <option value="all">
+          All Subjects
+        </option>
+
+        <option value="Pakistan Studies">
+          Pakistan Studies
+        </option>
+
+        <option value="Computer">
+          Computer
+        </option>
+
+        <option value="English">
+          English
+        </option>
+
+        <option value="General Knowledge">
+          General Knowledge
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <button class="btn btn-primary"
+            id="startQuizBtn">
+      ▶ Start Test
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================= QUIZ PAGE ================= -->
+
+<section id="quizPage"
+         class="page">
+
+  <div class="quiz-container">
+
+    <div class="quiz-top">
+
+      <div class="quiz-info">
+
+        <strong id="questionCounter">
+          Question 1 / 10
+        </strong>
+
+        <span class="timer"
+              id="timer">
+          05:00
+        </span>
+
+      </div>
+
+
+      <div class="progress">
+
+        <div class="progress-bar"
+             id="quizProgress">
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="question-card">
+
+      <div class="question-subject"
+           id="questionSubject">
+        Subject
+      </div>
+
+
+      <div class="question-text"
+           id="questionText">
+        Question
+      </div>
+
+
+      <div class="options"
+           id="optionsContainer">
+      </div>
+
+
+      <div class="quiz-actions">
+
+        <button class="btn btn-secondary"
+                id="previousBtn">
+          ← Previous
+        </button>
+
+        <button class="btn btn-primary"
+                id="nextBtn">
+          Next →
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= RESULT ================= -->
+
+<section id="resultPage"
+         class="page">
+
+  <div class="result-card">
+
+    <div class="result-icon">
+      🏆
+    </div>
+
+    <h2>
+      Test Completed!
+    </h2>
+
+    <div class="score"
+         id="finalScore">
+      0%
+    </div>
+
+    <p id="resultMessage">
+      Well done!
+    </p>
+
+
+    <div class="result-grid">
+
+      <div class="result-box">
+        <strong id="correctAnswers">
+          0
+        </strong>
+        Correct
+      </div>
+
+      <div class="result-box">
+        <strong id="wrongAnswers">
+          0
+        </strong>
+        Wrong
+      </div>
+
+      <div class="result-box">
+        <strong id="skippedAnswers">
+          0
+        </strong>
+        Skipped
+      </div>
+
+    </div>
+
+
+    <button class="btn btn-primary"
+            id="retryBtn">
+      🔄 Try Again
+    </button>
+
+    <button class="btn btn-secondary"
+            id="dashboardBtn">
+      🏠 Dashboard
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================= SUBJECTS ================= -->
+
+<section id="subjects"
+         class="page">
+
+  <h2 class="section-title">
+    📚 Subjects
+  </h2>
+
+
+  <div class="subject-grid">
+
+    <div class="subject-card">
+      <div class="subject-icon">🇵🇰</div>
+      <h3>Pakistan Studies</h3>
+      <p>
+        Pakistan Movement, Constitution, History and Geography.
+      </p>
+    </div>
+
+
+    <div class="subject-card">
+      <div class="subject-icon">💻</div>
+      <h3>Computer</h3>
+      <p>
+        Hardware, Software, MS Word, Excel and Networking.
+      </p>
+    </div>
+
+
+    <div class="subject-card">
+      <div class="subject-icon">📖</div>
+      <h3>English</h3>
+      <p>
+        Grammar, vocabulary, synonyms and antonyms.
+      </p>
+    </div>
+
+
+    <div class="subject-card">
+      <div class="subject-icon">🌍</div>
+      <h3>General Knowledge</h3>
+      <p>
+        Countries, capitals, organizations and facts.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= REVISION ================= -->
+
+<section id="revision"
+         class="page">
+
+  <h2 class="section-title">
+    🔄 Wrong Questions Revision
+  </h2>
+
+
+  <div id="revisionContainer">
+
+    <div class="card"
+         style="text-align:center;color:#64748b;">
+
+      ابھی کوئی wrong question نہیں۔
+
+      <br><br>
+
+      Test دینے کے بعد غلط سوالات یہاں save ہوں گے۔
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= PROGRESS ================= -->
+
+<section id="progress"
+         class="page">
+
+  <h2 class="section-title">
+    📊 Your Progress
+  </h2>
+
+
+  <div class="card">
+
+    <h3>
+      Overall Performance
+    </h3>
+
+
+    <div style="margin-top:20px;">
+
+      <div style="
+        display:flex;
+        justify-content:space-between;
+        margin-bottom:7px;
+      ">
+
+        <span>
+          Best Score
+        </span>
+
+        <strong id="overallProgressText">
+          0%
+        </strong>
+
+      </div>
+
+
+      <div class="progress">
+
+        <div class="progress-bar"
+             id="overallProgressBar">
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="card"
+       style="margin-top:15px;">
+
+    <h3>
+      📌 Future Features
+    </h3>
+
+    <p style="color:#64748b;margin-top:10px;">
+      Past Papers، 1000+ MCQs، Search، Admin Panel،
+      Login System، Database اور AI Study Assistant
+      اگلے development phases میں شامل کیے جا سکتے ہیں۔
+    </p>
+
+  </div>
+
+
+  <button class="btn btn-danger"
+          id="resetBtn">
+    Reset All Progress
+  </button>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about"
+         class="page">
+
+  <h2 class="section-title">
+    👤 About Study Hub Pro
+  </h2>
+
+
+  <div class="about-card">
+
+    <h2>
+      What is Study Hub Pro?
+    </h2>
+
+    <p>
+      Study Hub Pro ایک educational exam-preparation platform
+      ہے جس کا مقصد PPSC، FPSC، NTS اور دوسرے competitive
+      exams کی preparation کو آسان اور organized بنانا ہے۔
+    </p>
+
+
+    <p>
+      یہاں students MCQ tests دے سکتے ہیں، اپنی performance
+      دیکھ سکتے ہیں اور غلط سوالات کی revision کر سکتے ہیں۔
+    </p>
+
+
+    <div class="owner-box">
+
+      <div style="font-size:35px;">
+        👨‍💻
+      </div>
+
+      <div class="owner-name">
+        Rai Wajahat Nazir
+      </div>
+
+      <p>
+        Owner & Developer of Study Hub Pro
+      </p>
+
+      <p>
+        Pakistan
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="about-card">
+
+    <h3>
+      🎯 Our Goal
+    </h3>
+
+    <p>
+      Simple, useful and practical exam preparation
+      resources ایک ہی جگہ فراہم کرنا۔
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact"
+         class="page">
+
+  <h2 class="section-title">
+    📞 Contact Us
+  </h2>
+
+
+  <div class="contact-grid">
+
+    <div class="contact-item">
+
+      <div class="contact-icon">
+        👤
+      </div>
+
+      <h3>
+        Owner
+      </h3>
+
+      <p>
+        Rai Wajahat Nazir
+      </p>
+
+    </div>
+
+
+    <div class="contact-item">
+
+      <div class="contact-icon">
+        📧
+      </div>
+
+      <h3>
+        Email
+      </h3>
+
+      <p>
+        Professional Email
+      </p>
+
+      <!-- Replace YOUR_EMAIL with your Gmail -->
+
+      <a
+        class="contact-link"
+        href="mailto:YOUR_EMAIL@gmail.com">
+
+        YOUR_EMAIL@gmail.com
+
+      </a>
+
+    </div>
+
+
+    <div class="contact-item">
+
+      <div class="contact-icon">
+        📱
+      </div>
+
+      <h3>
+        WhatsApp
+      </h3>
+
+      <p>
+        Direct contact
+      </p>
+
+      <!-- Replace 923XXXXXXXXX with your WhatsApp number -->
+
+      <a
+        class="contact-link"
+        href="https://wa.me/923XXXXXXXXX"
+        target="_blank">
+
+        Chat on WhatsApp
+
+      </a>
+
+    </div>
+
+
+    <div class="contact-item">
+
+      <div class="contact-icon">
+        📍
+      </div>
+
+      <h3>
+        Location
+      </h3>
+
+      <p>
+        Pakistan
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="about-card"
+       style="margin-top:18px;">
+
+    <h3>
+      💬 Feedback
+    </h3>
+
+    <p>
+      اگر کسی MCQ میں غلطی نظر آئے یا website کے لیے
+      کوئی suggestion ہو تو owner سے contact کریں۔
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ================= PRIVACY ================= -->
+
+<section id="privacy"
+         class="page">
+
+  <div class="about-card">
+
+    <h2>
+      🔒 Privacy Policy
+    </h2>
+
+    <p>
+      Study Hub Pro prototype میں quiz progress browser کے
+      local storage میں محفوظ ہو سکتی ہے۔ اس prototype میں
+      کوئی user account یا server-side database شامل نہیں۔
+    </p>
+
+    <p>
+      Future versions میں privacy practices کو database اور
+      account system کے مطابق update کیا جائے گا۔
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ================= TERMS ================= -->
+
+<section id="terms"
+         class="page">
+
+  <div class="about-card">
+
+    <h2>
+      📄 Terms & Conditions
+    </h2>
+
+    <p>
+      Study Hub Pro educational preparation کے لیے بنایا گیا ہے۔
+      Users کو website کا استعمال قانونی اور مناسب مقصد کے
+      لیے کرنا چاہیے۔
+    </p>
+
+    <p>
+      Website کے features اور content وقت کے ساتھ update
+      کیے جا سکتے ہیں۔
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ================= DISCLAIMER ================= -->
+
+<section id="disclaimer"
+         class="page">
+
+  <div class="about-card">
+
+    <h2>
+      ⚠️ Disclaimer
+    </h2>
+
+    <p>
+      Study Hub Pro ایک independent educational platform ہے۔
+      یہ PPSC، FPSC، NTS یا کسی سرکاری ادارے کی official website
+      نہیں ہے۔
+    </p>
+
+    <p>
+      Exam candidates کو ہمیشہ متعلقہ official advertisement
+      اور official sources سے eligibility، dates اور دیگر
+      معلومات verify کرنی چاہئیں۔
+    </p>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <h2>
+    Study Hub Pro
+  </h2>
+
+  <p>
+    PPSC • FPSC • NTS Exam Preparation
+  </p>
+
+
+  <div class="footer-links">
+
+    <a href="#"
+       onclick="openPage('about');return false;">
+      About
+    </a>
+
+    <a href="#"
+       onclick="openPage('contact');return false;">
+      Contact
+    </a>
+
+    <a href="#"
+       onclick="openPage('privacy');return false;">
+      Privacy Policy
+    </a>
+
+    <a href="#"
+       onclick="openPage('terms');return false;">
+      Terms
+    </a>
+
+    <a href="#"
+       onclick="openPage('disclaimer');return false;">
+      Disclaimer
+    </a>
+
+  </div>
+
+
+  <p class="footer-owner">
+    Owned & Developed by Rai Wajahat Nazir
+  </p>
+
+  <p style="font-size:13px;margin-top:8px;">
+    © 2026 Study Hub Pro. All Rights Reserved.
+  </p>
+
+</footer>
+
+
+<script>
+
+  /* ==================================================
+     QUESTION BANK
+  ================================================== */
+
+  const questionBank = [
+
+    {
+      subject: "Pakistan Studies",
+      question: "Who was the first Governor-General of Pakistan?",
+      options: [
+        "Liaquat Ali Khan",
+        "Muhammad Ali Jinnah",
+        "Iskander Mirza",
+        "Ayub Khan"
+      ],
+      answer: 1,
+      explanation:
+        "Muhammad Ali Jinnah was the first Governor-General of Pakistan."
+    },
+
+    {
+      subject: "Pakistan Studies",
+      question: "Pakistan came into being on:",
+      options: [
+        "23 March 1940",
+        "14 August 1947",
+        "15 August 1947",
+        "11 September 1948"
+      ],
+      answer: 1,
+      explanation:
+        "Pakistan became independent on 14 August 1947."
+    },
+
+    {
+      subject: "Pakistan Studies",
+      question: "What is the capital of Pakistan?",
+      options: [
+        "Lahore",
+        "Karachi",
+        "Islamabad",
+        "Peshawar"
+      ],
+      answer: 2,
+      explanation:
+        "Islamabad is the capital of Pakistan."
+    },
+
+    {
+      subject: "Pakistan Studies",
+      question: "The Pakistan Resolution was passed at:",
+      options: [
+        "Lahore",
+        "Karachi",
+        "Delhi",
+        "Dhaka"
+      ],
+      answer: 0,
+      explanation:
+        "The Lahore Resolution was passed at Lahore in 1940."
+    },
+
+    {
+      subject: "Computer",
+      question: "What does CPU stand for?",
+      options: [
+        "Central Processing Unit",
+        "Computer Personal Unit",
+        "Central Program Utility",
+        "Control Processing User"
+      ],
+      answer: 0,
+      explanation:
+        "CPU stands for Central Processing Unit."
+    },
+
+    {
+      subject: "Computer",
+      question: "Which shortcut is commonly used to copy selected text?",
+      options: [
+        "Ctrl + X",
+        "Ctrl + C",
+        "Ctrl + V",
+        "Ctrl + Z"
+      ],
+      answer: 1,
+      explanation:
+        "Ctrl + C is commonly used to copy selected content."
+    },
+
+    {
+      subject: "Computer",
+      question: "What does HTML stand for?",
+      options: [
+        "HyperText Markup Language",
+        "HighText Machine Language",
+        "Hyper Tool Markup Link",
+        "Home Tool Markup Language"
+      ],
+      answer: 0,
+      explanation:
+        "HTML stands for HyperText Markup Language."
+    },
+
+    {
+      subject: "English",
+      question: "Choose the synonym of 'Brave'.",
+      options: [
+        "Coward",
+        "Weak",
+        "Courageous",
+        "Lazy"
+      ],
+      answer: 2,
+      explanation:
+        "Courageous means brave."
+    },
+
+    {
+      subject: "English",
+      question: "Which word is a noun?",
+      options: [
+        "Beautiful",
+        "Quickly",
+        "Honesty",
+        "Run"
+      ],
+      answer: 2,
+      explanation:
+        "Honesty is an abstract noun."
+    },
+
+    {
+      subject: "English",
+      question: "Choose the correct sentence.",
+      options: [
+        "He go to school.",
+        "He going to school.",
+        "He goes to school.",
+        "He gone school."
+      ],
+      answer: 2,
+      explanation:
+        "With 'He' in simple present tense, we use 'goes'."
+    },
+
+    {
+      subject: "General Knowledge",
+      question: "Which is the largest province of Pakistan by area?",
+      options: [
+        "Punjab",
+        "Sindh",
+        "Balochistan",
+        "Khyber Pakhtunkhwa"
+      ],
+      answer: 2,
+      explanation:
+        "Balochistan is the largest province of Pakistan by area."
+    },
+
+    {
+      subject: "General Knowledge",
+      question: "Which planet is known as the Red Planet?",
+      options: [
+        "Venus",
+        "Mars",
+        "Jupiter",
+        "Mercury"
+      ],
+      answer: 1,
+      explanation:
+        "Mars is commonly known as the Red Planet."
+    }
+
+  ];
+
+
+  /* ==================================================
+     VARIABLES
+  ================================================== */
+
+  let quizQuestions = [];
+
+  let currentQuestion = 0;
+
+  let userAnswers = [];
+
+  let timeLeft = 300;
+
+  let timerInterval = null;
+
+
+  /* ==================================================
+     PAGE NAVIGATION
+  ================================================== */
+
+  const pages =
+    document.querySelectorAll(".page");
+
+  const navButtons =
+    document.querySelectorAll(".nav-btn");
+
+
+  function openPage(pageId) {
+
+    pages.forEach(function(page) {
+
+      page.classList.remove("active");
+
+    });
+
+
+    const target =
+      document.getElementById(pageId);
+
+
+    if (target) {
+
+      target.classList.add("active");
+
+    }
+
+
+    navButtons.forEach(function(button) {
+
+      button.classList.remove("active");
+
+      if (
+        button.dataset.page === pageId
+      ) {
+
+        button.classList.add("active");
+
+      }
+
+    });
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+
+    if (pageId === "revision") {
+
+      loadRevision();
+
+    }
+
+
+    if (pageId === "progress") {
+
+      updateProgress();
+
+    }
+
+  }
+
+
+  navButtons.forEach(function(button) {
+
+    button.addEventListener(
+      "click",
+      function() {
+
+        openPage(
+          button.dataset.page
+        );
+
+      }
+    );
+
+  });
+
+
+  /* ==================================================
+     START BUTTONS
+  ================================================== */
+
+  document
+    .getElementById("heroStartBtn")
+    .addEventListener(
+      "click",
+      function() {
+
+        openPage("quizSetup");
+
+      }
+    );
+
+
+  document
+    .getElementById("startQuizBtn")
+    .addEventListener(
+      "click",
+      startQuiz
+    );
+
+
+  /* ==================================================
+     START QUIZ
+  ================================================== */
+
+  function startQuiz() {
+
+    const selectedSubject =
+      document.getElementById(
+        "subjectSelect"
+      ).value;
+
+
+    if (
+      selectedSubject === "all"
+    ) {
+
+      quizQuestions =
+        [...questionBank];
+
+    } else {
+
+      quizQuestions =
+        questionBank.filter(
+          function(question) {
+
+            return (
+              question.subject ===
+              selectedSubject
+            );
+
+          }
+        );
+
+    }
+
+
+    quizQuestions.sort(
+      function() {
+
+        return Math.random() - .5;
+
+      }
+    );
+
+
+    quizQuestions =
+      quizQuestions.slice(0,10);
+
+
+    currentQuestion = 0;
+
+
+    userAnswers =
+      new Array(
+        quizQuestions.length
+      ).fill(null);
+
+
+    timeLeft = 300;
+
+
+    openPage("quizPage");
+
+
+    startTimer();
+
+    renderQuestion();
+
+  }
+
+
+  /* ==================================================
+     TIMER
+  ================================================== */
+
+  function startTimer() {
+
+    clearInterval(
+      timerInterval
+    );
+
+
+    updateTimer();
+
+
+    timerInterval =
+      setInterval(
+        function() {
+
+          timeLeft--;
+
+          updateTimer();
+
+
+          if (
+            timeLeft <= 0
+          ) {
+
+            clearInterval(
+              timerInterval
+            );
+
+            finishQuiz();
+
+          }
+
+        },
+        1000
+      );
+
+  }
+
+
+  function updateTimer() {
+
+    const minutes =
+      Math.floor(
+        timeLeft / 60
+      );
+
+
+    const seconds =
+      timeLeft % 60;
+
+
+    document.getElementById(
+      "timer"
+    ).textContent =
+      String(minutes).padStart(2,"0")
+      +
+      ":"
+      +
+      String(seconds).padStart(2,"0");
+
+  }
+
+
+  /* ==================================================
+     RENDER QUESTION
+  ================================================== */
+
+  function renderQuestion() {
+
+    const question =
+      quizQuestions[currentQuestion];
+
+
+    document.getElementById(
+      "questionCounter"
+    ).textContent =
+      "Question "
+      +
+      (currentQuestion + 1)
+      +
+      " / "
+      +
+      quizQuestions.length;
+
+
+    document.getElementById(
+      "questionSubject"
+    ).textContent =
+      question.subject;
+
+
+    document.getElementById(
+      "questionText"
+    ).textContent =
+      question.question;
+
+
+    document.getElementById(
+      "quizProgress"
+    ).style.width =
+      (
+        (
+          (currentQuestion + 1)
+          /
+          quizQuestions.length
+        ) * 100
+      ) + "%";
+
+
+    const container =
+      document.getElementById(
+        "optionsContainer"
+      );
+
+
+    container.innerHTML = "";
+
+
+    question.options.forEach(
+      function(option,index) {
+
+        const button =
+          document.createElement(
+            "button"
+          );
+
+
+        button.className =
+          "option";
+
+
+        if (
+          userAnswers[
+            currentQuestion
+          ] === index
+        ) {
+
+          button.classList.add(
+            "selected"
+          );
+
+        }
+
+
+        button.textContent =
+          String.fromCharCode(
+            65 + index
+          )
+          +
+          ". "
+          +
+          option;
+
+
+        button.addEventListener(
+          "click",
+          function() {
+
+            userAnswers[
+              currentQuestion
+            ] = index;
+
+            renderQuestion();
+
+          }
+        );
+
+
+        container.appendChild(
+          button
+        );
+
+      }
+    );
+
+
+    document.getElementById(
+      "previousBtn"
+    ).disabled =
+      currentQuestion === 0;
+
+
+    document.getElementById(
+      "nextBtn"
+    ).textContent =
+      currentQuestion ===
+      quizQuestions.length - 1
+      ?
+      "Finish Test ✓"
+      :
+      "Next →";
+
+  }
+
+
+  /* ==================================================
+     PREVIOUS
+  ================================================== */
+
+  document
+    .getElementById("previousBtn")
+    .addEventListener(
+      "click",
+      function() {
+
+        if (
+          currentQuestion > 0
+        ) {
+
+          currentQuestion--;
+
+          renderQuestion();
+
+        }
+
+      }
+    );
+
+
+  /* ==================================================
+     NEXT
+  ================================================== */
+
+  document
+    .getElementById("nextBtn")
+    .addEventListener(
+      "click",
+      function() {
+
+        if (
+          currentQuestion
+          <
+          quizQuestions.length - 1
+        ) {
+
+          currentQuestion++;
+
+          renderQuestion();
+
+        } else {
+
+          finishQuiz();
+
+        }
+
+      }
+    );
+
+
+  /* ==================================================
+     FINISH QUIZ
+  ================================================== */
+
+  function finishQuiz() {
+
+    clearInterval(
+      timerInterval
+    );
+
+
+    let correct = 0;
+
+    let wrong = 0;
+
+    let skipped = 0;
+
+
+    quizQuestions.forEach(
+      function(question,index) {
+
+        const answer =
+          userAnswers[index];
+
+
+        if (
+          answer === null
+        ) {
+
+          skipped++;
+
+        }
+        else if (
+          answer === question.answer
+        ) {
+
+          correct++;
+
+        }
+        else {
+
+          wrong++;
+
+        }
+
+      }
+    );
+
+
+    const total =
+      quizQuestions.length;
+
+
+    const percentage =
+      Math.round(
+        (correct / total) * 100
+      );
+
+
+    const oldTests =
+      Number(
+        localStorage.getItem(
+          "sh_tests"
+        ) || 0
+      );
+
+
+    const oldTotal =
+      Number(
+        localStorage.getItem(
+          "sh_total"
+        ) || 0
+      );
+
+
+    const oldBest =
+      Number(
+        localStorage.getItem(
+          "sh_best"
+        ) || 0
+      );
+
+
+    localStorage.setItem(
+      "sh_tests",
+      oldTests + 1
+    );
+
+
+    localStorage.setItem(
+      "sh_total",
+      oldTotal + percentage
+    );
+
+
+    if (
+      percentage > oldBest
+    ) {
+
+      localStorage.setItem(
+        "sh_best",
+        percentage
+      );
+
+    }
+
+
+    saveWrongQuestions();
+
+
+    document.getElementById(
+      "finalScore"
+    ).textContent =
+      percentage + "%";
+
+
+    document.getElementById(
+      "correctAnswers"
+    ).textContent =
+      correct;
+
+
+    document.getElementById(
+      "wrongAnswers"
+    ).textContent =
+      wrong;
+
+
+    document.getElementById(
+      "skippedAnswers"
+    ).textContent =
+      skipped;
+
+
+    let message;
+
+
+    if (
+      percentage >= 80
+    ) {
+
+      message =
+        "Excellent! 🔥 Keep it up.";
+
+    }
+    else if (
+      percentage >= 60
+    ) {
+
+      message =
+        "Good effort! Keep practicing.";
+
+    }
+    else {
+
+      message =
+        "Keep studying. You can improve.";
+
+    }
+
+
+    document.getElementById(
+      "resultMessage"
+    ).textContent =
+      message;
+
+
+    updateDashboard();
+
+
+    openPage("resultPage");
+
+  }
+
+
+  /* ==================================================
+     WRONG QUESTIONS
+  ================================================== */
+
+  function saveWrongQuestions() {
+
+    let wrongQuestions =
+      JSON.parse(
+        localStorage.getItem(
+          "sh_wrong_questions"
+        ) || "[]"
+      );
+
+
+    quizQuestions.forEach(
+      function(question,index) {
+
+        if (
+          userAnswers[index]
+          !==
+          question.answer
+        ) {
+
+          const exists =
+            wrongQuestions.some(
+              function(item) {
+
+                return (
+                  item.question ===
+                  question.question
+                );
+
+              }
+            );
+
+
+          if (!exists) {
+
+            wrongQuestions.push(
+              question
+            );
+
+          }
+
+        }
+
+      }
+    );
+
+
+    localStorage.setItem(
+      "sh_wrong_questions",
+      JSON.stringify(
+        wrongQuestions
+      )
+    );
+
+  }
+
+
+  /* ==================================================
+     REVISION
+  ================================================== */
+
+  function loadRevision() {
+
+    const container =
+      document.getElementById(
+        "revisionContainer"
+      );
+
+
+    const wrongQuestions =
+      JSON.parse(
+        localStorage.getItem(
+          "sh_wrong_questions"
+        ) || "[]"
+      );
+
+
+    if (
+      wrongQuestions.length === 0
+    ) {
+
+      container.innerHTML = `
+        <div class="card"
+             style="text-align:center;color:#64748b;">
+          ابھی کوئی wrong question نہیں۔
+          <br><br>
+          Test دینے کے بعد غلط سوالات یہاں save ہوں گے۔
+        </div>
+      `;
+
+      return;
+
+    }
+
+
+    container.innerHTML = "";
+
+
+    wrongQuestions.forEach(
+      function(question,index) {
+
+        const card =
+          document.createElement(
+            "div"
+          );
+
+
+        card.className =
+          "revision-card";
+
+
+        card.innerHTML = `
+
+          <div style="
+            color:#2563eb;
+            font-weight:bold;
+            font-size:13px;
+          ">
+            ${question.subject}
+          </div>
+
+          <h3 style="margin-top:7px;">
+            ${index + 1}.
+            ${question.question}
+          </h3>
+
+          <div class="correct-answer">
+            ✓ Correct Answer:
+            ${question.options[question.answer]}
+          </div>
+
+          <div class="explanation">
+            ${question.explanation}
+          </div>
+
+        `;
+
+
+        container.appendChild(
+          card
+        );
+
+      }
+    );
+
+  }
+
+
+  /* ==================================================
+     DASHBOARD
+  ================================================== */
+
+  function updateDashboard() {
+
+    const tests =
+      Number(
+        localStorage.getItem(
+          "sh_tests"
+        ) || 0
+      );
+
+
+    const best =
+      Number(
+        localStorage.getItem(
+          "sh_best"
+        ) || 0
+      );
+
+
+    const total =
+      Number(
+        localStorage.getItem(
+          "sh_total"
+        ) || 0
+      );
+
+
+    const average =
+      tests > 0
+      ?
+      Math.round(
+        total / tests
+      )
+      :
+      0;
+
+
+    document.getElementById(
+      "totalTests"
+    ).textContent =
+      tests;
+
+
+    document.getElementById(
+      "bestScore"
+    ).textContent =
+      best + "%";
+
+
+    document.getElementById(
+      "averageScore"
+    ).textContent =
+      average + "%";
+
+  }
+
+
+  /* ==================================================
+     PROGRESS
+  ================================================== */
+
+  function updateProgress() {
+
+    const best =
+      Number(
+        localStorage.getItem(
+          "sh_best"
+        ) || 0
+      );
+
+
+    document.getElementById(
+      "overallProgressText"
+    ).textContent =
+      best + "%";
+
+
+    document.getElementById(
+      "overallProgressBar"
+    ).style.width =
+      best + "%";
+
+  }
+
+
+  /* ==================================================
+     RETRY
+  ================================================== */
+
+  document
+    .getElementById("retryBtn")
+    .addEventListener(
+      "click",
+      function() {
+
+        openPage("quizSetup");
+
+      }
+    );
+
+
+  /* ==================================================
+     DASHBOARD
+  ================================================== */
+
+  document
+    .getElementById("dashboardBtn")
+    .addEventListener(
+      "click",
+      function() {
+
+        openPage("dashboard");
+
+      }
+    );
+
+
+  /* ==================================================
+     RESET
+  ================================================== */
+
+  document
+    .getElementById("resetBtn")
+    .addEventListener(
+      "click",
+      function() {
+
+        const confirmReset =
+          confirm(
+            "Are you sure you want to reset all progress?"
+          );
+
+
+        if (!confirmReset) {
+
+          return;
+
+        }
+
+
+        localStorage.removeItem(
+          "sh_tests"
+        );
+
+        localStorage.removeItem(
+          "sh_best"
+        );
+
+        localStorage.removeItem(
+          "sh_total"
+        );
+
+        localStorage.removeItem(
+          "sh_wrong_questions"
+        );
+
+
+        updateDashboard();
+
+        updateProgress();
+
+        loadRevision();
+
+
+        alert(
+          "All progress has been reset."
+        );
+
+      }
+    );
+
+
+  /* ==================================================
+     INITIALIZE
+  ================================================== */
+
+  updateDashboard();
+
+  updateProgress();
+
+</script>
+
+</body>
+</html>
